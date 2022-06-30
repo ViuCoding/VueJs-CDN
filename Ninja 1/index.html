@@ -8,6 +8,32 @@
     <script src="https://unpkg.com/vue@3"></script>
 
     <style>
+      body {
+        background: #eee;
+        max-width: 960px;
+        margin: 20px auto;
+        font-family: monospace;
+      }
+      p,
+      h3,
+      ul {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style-type: none;
+        background: #fff;
+        margin: 20px auto;
+        padding: 10px 20px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      li.fav {
+        background: #0e7925;
+        color: white;
+      }
       .box {
         padding: 100px 0;
         width: 400px;
@@ -39,7 +65,14 @@
 
       <div v-if="showBooks">
         <ul>
-          <li v-for="book in books">
+          <!--:class="{fav: book.isFav}" What is happening??
+          1. The class is now dynamic since we are using v-bind
+          2. We will apply the class fav IF book.isFave is true
+
+          :class="{className: boolean}"
+
+          -->
+          <li v-for="book in books" :class="{fav: book.isFav}">
             <img :src="book.img" :alt="book.title" />
             <h3>{{book.title}}</h3>
             <p>{{book.author}}</p>
