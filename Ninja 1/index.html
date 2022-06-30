@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3"></script>
+
+    <style>
+      .box {
+        padding: 100px 0;
+        width: 400px;
+        text-align: center;
+        background-color: #ddd;
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <!-- <div v-if="showBooks">
+        <p>{{title}} - {{author}} - {{age}}</p>
+      </div> -->
+
+      <div v-if="showBooks">
+        <ul>
+          <li v-for="book in books">
+            <h3>{{book.title}}</h3>
+            <p>{{book.author}}</p>
+          </li>
+        </ul>
+      </div>
+
+      <button @click="toggleShowBooks">
+        <span v-if="showBooks">Hide Books</span>
+        <span v-else>Show Books</span>
+        <!-- <span v-if="!showBooks">Show Books</span> -->
+      </button>
+
+      <!-- The difference betwen v-if & v-show:
+    1.v-if completely removes the element from the DOM completely
+    2.v-show simply uses CSS to hide/show the element
+
+    
+    -->
+      <div v-show="showBooks">Currently Showing Books</div>
+
+      <!-- <button @click="age--">Decrease age</button>
+      <button v-on:click="age++">Increase age</button>
+      <br /><br />
+      <button @click="changeTitle">Calling component's method</button> -->
+
+      <br /><br />
+      <!-- MOUSE EVENTS -->
+
+      <!-- If we want to pass in a parameter and at the same time have access to the Event object we have to use $event -->
+      <div class="box" @mouseover="handleEvent($event, 'I AM THE SECOND PARAMETER')">mouseover</div>
+      <div class="box" @mouseleave="handleEvent">mouseleave</div>
+      <div class="box" @dblclick="handleEvent">double click</div>
+      <div class="box" @mousemove="handleMouseMove">Position - x: {{x}} || y: {{y}}</div>
+    </div>
+    <script src="./app.js"></script>
+  </body>
+</html>
