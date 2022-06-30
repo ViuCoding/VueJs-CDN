@@ -2,19 +2,23 @@ const app = Vue.createApp({
   // data or functions
   data() {
     return {
+      url: "https://www.nba.com",
       showBooks: true,
       books: [
         {
           title: "The Final Empire",
           author: "Brandon Sanderson",
+          img: "img/1.png",
         },
         {
           title: "The Lord of the Rings",
           author: "R.R. Tolkien",
+          img: "img/2.png",
         },
         {
           title: "I 7 nani",
           author: "Roccu Alici",
+          img: "img/3.png",
         },
       ],
       age: 41,

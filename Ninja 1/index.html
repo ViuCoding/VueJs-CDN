@@ -16,17 +16,31 @@
         margin: 20px;
         display: inline-block;
       }
+
+      img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+      }
     </style>
   </head>
   <body>
     <div id="app">
-      <!-- <div v-if="showBooks">
-        <p>{{title}} - {{author}} - {{age}}</p>
-      </div> -->
+      <!-- 
+        We don't have access to the url key like this
+        <a href="{{url}} // url" target="_blank"></a>
+        We need to use the so called Attribute Binding
+
+         <a :href="url" target="_blank">
+          OR
+         <a v-bind:href="url" target="_blank">
+       -->
+      <a :href="url" target="_blank">Link</a>
 
       <div v-if="showBooks">
         <ul>
           <li v-for="book in books">
+            <img :src="book.img" :alt="book.title" />
             <h3>{{book.title}}</h3>
             <p>{{book.author}}</p>
           </li>
