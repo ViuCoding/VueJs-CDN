@@ -72,7 +72,7 @@
           :class="{className: boolean}"
 
           -->
-          <li v-for="book in books" :class="{fav: book.isFav}">
+          <li v-for="book in books" @dblclick="toggleFav(book)" :class="{fav: book.isFav}">
             <img :src="book.img" :alt="book.title" />
             <h3>{{book.title}}</h3>
             <p>{{book.author}}</p>
